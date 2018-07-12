@@ -1,0 +1,21 @@
+{
+  "name": "meanTEST",
+  "version": "1.0.0",
+  "description": "A admin front end that pulls data from mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server_cpu_cluster.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "jwt-simple": "^0.2.0",
+    "mongodb": "^2.1.6",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies":{
+     "loadtest": "*"
+  },
+  "author": "Gerhard Goosen"
+}

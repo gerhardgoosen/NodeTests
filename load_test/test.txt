@@ -1,0 +1,45 @@
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 10 -t 20 -k > test1.res
+
+  
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 20 -t 20 -k > test2.res
+ 
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 50 -t 20 -k > test3.res 
+
+  
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 100 -t 20 -k > test4.res
+ 
+ 
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 150 -t 20 -k  > test5.res
+
+  
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 200 -t 20 -k > test6.res
+ 
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 250 -t 20 -k  > test7.res
+
+  
+loadtest http://192.168.1.51:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI1NDgyMzUwMDV9.B4ESmpUbymAjXJoybgSoVjLwfCtatiMmkF9MSUTDIjE" \
+-H "x-key:gerhardgoosen@gmail.com" \
+-c 500 -t 20 -k  > test8.res
+ 

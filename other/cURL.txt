@@ -1,0 +1,12 @@
+
+
+curl http://192.168.1.51:8000/login \
+-H "content-type:application/json" \
+-d '{"username":"gerhardgoosen@gmail.com","password":"bandit"}
+
+//unauthed
+curl http://192.168.1.51:8000/api/v1/locations
+//login
+curl http://192.168.1.51:8000/login -H "content-type:application/json" -d '{"username":"gerhardgoosen@gmail.com","password":"bandit"}'
+//authed
+curl http://192.168.1.51:8000/api/v1/locations -H "content-type:application/json" -H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI5MDk1MTk2NjN9.EZiWxO7FaMRnwYK2fyiPKyIP5RKdHCWbhcrNMq22i4E" -H "x-key:gerhardgoosen@gmail.com"

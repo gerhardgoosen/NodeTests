@@ -1,0 +1,37 @@
+
+//NOTE UN authed should fail lots of errors
+loadtest http://gpgoosen-laptop:8000/api/v1/people
+
+
+
+
+//NOTE login load test
+loadtest http://gpgoosen-laptop:8000/login -H "content-type:application/json" -d '{"username":"gerhardgoosen@gmail.com","password":"bandit"}' -c 10 -t 10
+
+
+
+//do this once tp get a key
+curl http://192.168.1.51:8000/login -H "content-type:application/json" -d '{"username":"gerhardgoosen@gmail.com","password":"bandit"}'
+
+//copy key into following loadtests
+
+
+loadtest http://gpgoosen-laptop:8000/api/v1/users \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI4OTE1NDQ1Nzl9.ZBnCyYGld658ryPsdRFonAijAzvJjlCMMA4HwWSrTTI" \
+-H "x-key:gerhardgoosen@gmail.com" -c 10 -t 10
+
+
+loadtest http://gpgoosen-laptop:8000/api/v1/people \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI4OTE1NDQ1Nzl9.ZBnCyYGld658ryPsdRFonAijAzvJjlCMMA4HwWSrTTI" \
+-H "x-key:gerhardgoosen@gmail.com" -c 10 -t 10
+
+
+//NOTE ALL locations
+loadtest http://gpgoosen-laptop:8000/api/v1/locations \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI4OTE1NDQ1Nzl9.ZBnCyYGld658ryPsdRFonAijAzvJjlCMMA4HwWSrTTI" \
+-H "x-key:gerhardgoosen@gmail.com" -c 10 -t 10
+
+//NOTE 1 location
+loadtest http://gpgoosen-laptop:8000/api/v1/location/57c00a45418ac26be66879a8 \
+-H "x-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0NzI4OTE1NDQ1Nzl9.ZBnCyYGld658ryPsdRFonAijAzvJjlCMMA4HwWSrTTI" \
+-H "x-key:gerhardgoosen@gmail.com" -c 10 -t 10

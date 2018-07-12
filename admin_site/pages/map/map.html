@@ -1,0 +1,109 @@
+<style>
+
+      #floating-panel {
+        position: absolute;
+  top: 10px;
+  right: 25px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  /* line-height: 30px; */
+  padding-left: 10px;
+      }
+    </style>
+<div class="text-center col-md-12">
+    <h1>{{pageTitle}}</h1>
+    <p class="text-center">{{pageDescription}}</p>
+</div>
+<div class="section" data-spy="scroll">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-controller="MapCtrl as mapCtrl" ng-cloak>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div id="floating-panel">
+                             <button ng-click="mapCtrl.toggleMarkers()">Toggle Markers</button>
+                            <button ng-click="mapCtrl.toggleBikeLayer()">Toggle Bike Layer</button>
+                            <button ng-click="mapCtrl.toggleKMLLayer()">Toggle KMl Layer</button>
+                            <button ng-click="mapCtrl.toggleTransitLayer()">Toggle Transit Layer</button>
+                               <button ng-click="mapCtrl.toggleHeatmap()">Toggle Heatmap</button>
+                               <button ng-click="mapCtrl.changeGradient()">Change gradient</button>
+                               <button ng-click="mapCtrl.changeRadius()">Change radius</button>
+                               <button ng-click="mapCtrl.changeOpacity()">Change opacity</button>
+                             </div>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="search">Search:</label>
+                            <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="col-md-6" for="search">Records per page:</label>
+                            <select class="col-md-6" id="pagesSizePicker" ng-model="pageSize" ng-options="i for i in pageSizes">
+                            </select>
+                            <!-- <input type="number" min="1" max="100" class="form-control" ng-model="pageSize"> -->
+                        </div>
+                    </div>
+
+                    <div  >
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/templates/dirPagenation.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                Page: {{ currentPage }} / {{mapCtrl.getTotalPages()}} - Records : {{locationsList.length}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-left" dir-paginate="location in locationsList | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                        <hr/>
+                        <div class="col-md-10">
+                            <p class="text-left">
+                                <label>User : </label><b>{{location.UserId}}</b>
+                            </p>
+                        </div>
+                        <div class="col-md-10">
+                            <p class="text-left">
+                                Location : <b>{{location.Latitude}},{{location.Longitude}}</b> Altitude : <b>{{location.Altitude}}</b> Accuracy : <b>{{location.Accuracy}}</b>
+                            </p>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-info" data-toggle="modal" ng-click="mapCtrl.showLocationDetail(location);">
+                                <i class="fa fa-edit"></i>Details</button>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div  >
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/templates/dirPagenation.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm_JQqVPx-n8544WrNbLKfieXEV__NazM&libraries=visualization">
+</script> -->

@@ -1,0 +1,56 @@
+<div class="section" data-spy="scroll" ng-controller="ProfileCtrl as profileCtrl">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-horizontal text-left" role="form">
+           <div class="form-group">
+            <div class="col-sm-2">
+              <label for="inputlname" class="control-label">{{labels.lbl_profile_image}}</label>
+            </div>
+            <div class="col-sm-10">
+              <img id="profilepic" src="{{person.ProfilePic==null  ?  '../img/user_placeholder.png'   : person.ProfilePic}}" class="img-circle img-responsive">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-2">
+              <label for="inputEmail3" class="control-label">Email</label>
+            </div>
+            <div class="col-sm-10">
+              <input class="form-control" ng-model="user.UserId" disabled="true" id="inputEmail3" placeholder="Email" type="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-2">
+              <label for="inputfname" class="control-label">First Name</label>
+            </div>
+            <div class="col-sm-10">
+              <input class="form-control" id="inputfname" ng-model="person.FirstName" placeholder="First Name" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-2">
+              <label for="inputlname" class="control-label">Last Name</label>
+            </div>
+            <div class="col-sm-10">
+              <input class="form-control" id="inputlname" ng-model="person.LastName" placeholder="Last Name" required="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-2">
+              <label for="inputmobile" class="control-label">Mobile Number</label>
+            </div>
+            <div class="col-sm-10">
+              <input class="form-control" id="inputmobile" ng-model="person.CellPhone" placeholder="Mobile Number" required="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default" ng-click="profileCtrl.updateProfile();">Update Details</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
